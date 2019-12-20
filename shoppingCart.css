@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px 0 20px 150px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    text-align: center;
+    width: 937px;
+}
+
+.table-title {
+    font-family: fantasy;
+    font-size: 30px;
+    font-weight: bolder;
+    color: pink;
+}
