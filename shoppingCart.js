@@ -73,8 +73,23 @@ function subtotal(product, count, row, hasCalculated = false) {
   subtotalCell.innerHTML = product.price * count.value;
 }
 
+function selectProduct(product, row) {
+  var checkCell = document.createElement('td');
+  var checkBox = document.createElement('input');
+
+  checkBox.setAttribute('class', 'check-box');
+  checkBox.setAttribute('type', 'checkbox');
+  checkBox.setAttribute('id', product.id);
+  checkBox.checked = product.checked;
+  checkCell.appendChild(checkBox);
+  row.appendChild(checkCell);
+
+  checkBox.addEventListener('click', calculateTotalPrice);
+}
+
 function createProductInCart(product) {
   var row = document.createElement('tr');
+  selectProduct(product, row);
 
   showAlbum(product, row);
   showPrice(product, row);
@@ -151,8 +166,11 @@ function calculateTotalPrice() {
   var rows = document.getElementsByTagName('tr');
 
   for (var j = 1; j < rows.length; j++) {
-    var price = rows[j].childNodes[3].innerHTML;
-    totalPrice += Number(price);
+    var checkValue = rows[j].childNodes[0].childNodes[0];
+    if (checkValue.checked) {
+      var price = rows[j].childNodes[4].innerHTML;
+      totalPrice += Number(price);
+    }
   }
   totalPriceDOM.innerHTML = totalPrice.toString();
 }
