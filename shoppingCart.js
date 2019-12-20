@@ -27,6 +27,7 @@ function calculateProductQuantity(product, row) {
   reduceBtn.addEventListener('click', function () {
     reduce(count, row);
     subtotal(product, count, row, true);
+    calculateTotalPrice();
   });
 
   var count = document.createElement('input');
@@ -45,6 +46,7 @@ function calculateProductQuantity(product, row) {
   addBtn.addEventListener('click', function () {
     add(count);
     subtotal(product, count, row, true);
+    calculateTotalPrice();
   });
 
   return count;
@@ -143,6 +145,19 @@ function loadShoppingCartData() {
   cartProducts.forEach(appendCartProduct);
 }
 
+function calculateTotalPrice() {
+  var totalPriceDOM = document.getElementById('priceTotal');
+  var totalPrice = 0;
+  var rows = document.getElementsByTagName('tr');
+
+  for (var j = 1; j < rows.length; j++) {
+    var price = rows[j].childNodes[3].innerHTML;
+    totalPrice += Number(price);
+  }
+  totalPriceDOM.innerHTML = totalPrice.toString();
+}
+
 window.onload = function () {
   loadShoppingCartData();
+  calculateTotalPrice();
 };

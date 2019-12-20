@@ -85,3 +85,46 @@ img {
     background-color: #fff;
     z-index: 2;
 }
+
+.foot {
+    width: 935px;
+    margin-top: 10px;
+    color: #666;
+    height: 48px;
+    border: 1px solid #c8c8c8;
+    background-color: #eaeaea;
+    background-image: linear-gradient(RGB(241, 241, 241), RGB(226, 226, 226));
+    position: relative;
+    z-index: 8;
+}
+
+.foot div, .foot a {
+    line-height: 48px;
+    height: 48px;
+}
+
+.foot .closing {
+    border-left: 1px solid #c8c8c8;
+    width: 100px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    background: RGB(238, 238, 238);
+    cursor: pointer;
+}
+
+.foot .total {
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.foot {
+    cursor: pointer;
+    position: relative;
+    top: -3px;
+    margin-left: 0;
+}
+
+.fr {
+    float: right;
+}
