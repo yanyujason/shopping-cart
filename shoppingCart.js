@@ -44,6 +44,8 @@ function calculateProductQuantity(product, row) {
   addBtn.addEventListener('click', function () {
     add(count);
   });
+
+  return count;
 }
 
 function reduce(count, row) {
@@ -57,12 +59,20 @@ function add(count) {
   count.value++;
 }
 
+function subtotal(product, count, row) {
+  var subtotalCell = document.createElement('td');
+
+  row.appendChild(subtotalCell);
+  subtotalCell.innerHTML = product.price * count.value;
+}
+
 function createProductInCart(product) {
   var row = document.createElement('tr');
 
   showAlbum(product, row);
   showPrice(product, row);
-  calculateProductQuantity(product, row);
+  var count = calculateProductQuantity(product, row);
+  subtotal(product, count, row);
 
   return row;
 }
