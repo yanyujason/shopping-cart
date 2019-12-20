@@ -26,6 +26,7 @@ function calculateProductQuantity(product, row) {
 
   reduceBtn.addEventListener('click', function () {
     reduce(count, row);
+    subtotal(product, count, row, true);
   });
 
   var count = document.createElement('input');
@@ -43,6 +44,7 @@ function calculateProductQuantity(product, row) {
 
   addBtn.addEventListener('click', function () {
     add(count);
+    subtotal(product, count, row, true);
   });
 
   return count;
@@ -59,9 +61,12 @@ function add(count) {
   count.value++;
 }
 
-function subtotal(product, count, row) {
+function subtotal(product, count, row, hasCalculated = false) {
   var subtotalCell = document.createElement('td');
 
+  if(hasCalculated) {
+    row.removeChild(row.lastChild);
+  }
   row.appendChild(subtotalCell);
   subtotalCell.innerHTML = product.price * count.value;
 }
