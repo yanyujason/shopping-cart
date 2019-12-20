@@ -17,11 +17,52 @@ function showPrice(product, row) {
   row.appendChild(priceCell);
 }
 
+function calculateProductQuantity(product, row) {
+  var countCell = document.createElement('td');
+  var countDiv = document.createElement('div');
+  var reduceBtn = document.createElement('span');
+  reduceBtn.setAttribute('class', 'button');
+  reduceBtn.innerHTML = '-';
+
+  reduceBtn.addEventListener('click', function () {
+    reduce(count, row);
+  });
+
+  var count = document.createElement('input');
+  count.setAttribute('class', 'count');
+  count.setAttribute('type', 'text');
+  count.setAttribute('value', product.count);
+  var addBtn = document.createElement('span');
+  addBtn.setAttribute('class', 'button');
+  addBtn.innerHTML = '+';
+  countDiv.appendChild(reduceBtn);
+  countDiv.appendChild(count);
+  countDiv.appendChild(addBtn);
+  countCell.appendChild(countDiv);
+  row.appendChild(countCell);
+
+  addBtn.addEventListener('click', function () {
+    add(count);
+  });
+}
+
+function reduce(count, row) {
+  count.value--;
+  if (count.value <= 0) {
+    row.parentNode.removeChild(row);
+  }
+}
+
+function add(count) {
+  count.value++;
+}
+
 function createProductInCart(product) {
   var row = document.createElement('tr');
 
   showAlbum(product, row);
   showPrice(product, row);
+  calculateProductQuantity(product, row);
 
   return row;
 }

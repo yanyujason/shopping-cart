@@ -56,3 +56,32 @@ img {
     margin-right: 10px;
     float: left;
 }
+
+.button {
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    appearance: button;
+    width: 20px;
+    height: 22px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.button:hover {
+    color: #f50;
+    z-index: 3;
+    border-color: #f60;
+    cursor: pointer;
+}
+
+.count {
+    width: 60px;
+    height: 12px;
+    line-height: 15px;
+    border: 1px solid #aaa;
+    color: #343434;
+    text-align: center;
+    padding: 4px 0;
+    background-color: #fff;
+    z-index: 2;
+}
