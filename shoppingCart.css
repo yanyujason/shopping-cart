@@ -44,7 +44,7 @@ tbody tr:hover {
     background: RGB(238, 246, 255);
 }
 
-.albumName {
+.album-name {
     position: relative;
     top: 31px;
 }

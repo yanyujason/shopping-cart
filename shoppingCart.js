@@ -5,7 +5,7 @@ function showAlbum(product, row) {
 
   imgBlock.src = product.album;
   nameBlock.innerHTML = product.name;
-  nameBlock.setAttribute('class', 'albumName');
+  nameBlock.setAttribute('class', 'album-name');
   nameCell.appendChild(nameBlock);
   nameCell.appendChild(imgBlock);
   row.appendChild(nameCell);
@@ -101,7 +101,7 @@ function createProductInCart(product) {
 
 function appendCartProduct(product) {
   document
-    .getElementById('tbMain')
+    .getElementById('shopping-cart-products')
     .appendChild(createProductInCart(product));
 }
 
@@ -161,7 +161,7 @@ function loadShoppingCartData() {
 }
 
 function calculateTotalPrice() {
-  var totalPriceDOM = document.getElementById('priceTotal');
+  var totalPriceDOM = document.getElementById('price-total');
   var totalPrice = 0;
   var rows = document.getElementsByTagName('tr');
 
