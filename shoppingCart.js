@@ -11,10 +11,17 @@ function showAlbum(product, row) {
   row.appendChild(nameCell);
 }
 
+function showPrice(product, row) {
+  var priceCell = document.createElement('td');
+  priceCell.innerHTML = product.price;
+  row.appendChild(priceCell);
+}
+
 function createProductInCart(product) {
   var row = document.createElement('tr');
 
   showAlbum(product, row);
+  showPrice(product, row);
 
   return row;
 }
