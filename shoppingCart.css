@@ -43,3 +43,16 @@ td {
 tbody tr:hover {
     background: RGB(238, 246, 255);
 }
+
+.albumName {
+    position: relative;
+    top: 31px;
+}
+
+img {
+    width: 100px;
+    height: 80px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    float: left;
+}
