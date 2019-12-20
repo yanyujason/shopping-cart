@@ -21,3 +21,25 @@ table {
     font-weight: bolder;
     color: pink;
 }
+
+th, td {
+    border: 1px solid #CADEFF;
+}
+
+th {
+    background: #e2f2ff;
+    border-top: 3px solid #a7cbff;
+    height: 30px;
+    position: relative;
+}
+
+td {
+    padding: 10px;
+    color: #444;
+    text-align: center;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background: RGB(238, 246, 255);
+}
