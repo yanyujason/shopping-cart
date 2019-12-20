@@ -175,7 +175,25 @@ function calculateTotalPrice() {
   totalPriceDOM.innerHTML = totalPrice.toString();
 }
 
+function selectAll() {
+  var checkedAll = document.getElementsByClassName('check-all')[0];
+  var rows = document.getElementsByTagName('tr');
+  for (var k = 1; k < rows.length; k++) {
+    var checkValue = rows[k].childNodes[0].childNodes[0];
+    checkValue.checked = checkedAll.checked;
+  }
+}
+
+function addCheckAll() {
+  document.getElementsByClassName('check-all')[0]
+    .addEventListener('click', function () {
+      selectAll();
+      calculateTotalPrice();
+    });
+}
+
 window.onload = function () {
   loadShoppingCartData();
   calculateTotalPrice();
+  addCheckAll();
 };
